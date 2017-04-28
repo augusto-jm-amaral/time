@@ -1,0 +1,14 @@
+task-item {
+  .card {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    border-left: 10px solid rgba($teal, .8);
+
+    .label {
+      margin: 11px 11px;
+      font-size: 1.2em;
+      font-weight: 400;
+    }
+  }
+}

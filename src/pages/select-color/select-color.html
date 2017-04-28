@@ -1,0 +1,15 @@
+<ion-header>
+
+  <ion-navbar color="teal">
+    <ion-title>Colors List</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list no-lines>
+    <button *ngFor="let color of colorList" (click)="doSelect(color);" ion-item>{{color.name}}<ion-badge item-right>&nbsp;</ion-badge></button>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="teal">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list no-lines no-padding>
+    <task-item *ngFor="let task of taskItems" [task]="task"></task-item>
+  </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab color="gray_blue" (click)="doNew();"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>
