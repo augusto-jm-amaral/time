@@ -12,21 +12,21 @@
 
     <ion-item>
       <ion-label floating>Name *</ion-label>
-      <ion-input type="text" max="128"></ion-input>
+      <ion-input type="text" max="128" [(ngModel)]="task.name"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Description</ion-label>
-      <ion-textarea type="text" rows="5" maxlength="512"></ion-textarea>
+      <ion-textarea type="text" rows="5" maxlength="512" [(ngModel)]="task.description"></ion-textarea>
     </ion-item>
     
     <button ion-item (click)="doSelectColor();">
-      Color <ion-badge item-right>&nbsp;</ion-badge>
+      Color <ion-badge item-right [ngStyle]="{'background-color': task.color.hex}">&nbsp;</ion-badge>
     </button>
 
   </ion-list>
 </ion-content>
 
 <ion-footer>
-    <button ion-button full color="gray_blue">Create</button>
+    <button ion-button full color="teal" [disabled]="!task.name.length" (click)="doCreate()">Create</button>
 </ion-footer>

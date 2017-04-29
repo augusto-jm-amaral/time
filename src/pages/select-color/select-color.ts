@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Events } from 'ionic-angular';
 
 import { Color } from '../../interfaces/color';
 
@@ -10,11 +10,14 @@ import { Color } from '../../interfaces/color';
 export class SelectColor implements OnInit{
 
   private colorList: Array<Color>;
+  private selected: Color;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) { }
+  constructor(private navCtrl: NavController, 
+              private event: Events,
+              private navParams: NavParams) { }
 
   ngOnInit() {
-    let color = this.navParams.get('color');
+    this.selected = this.navParams.get('color');
     let colors = {
       'Red': '#F44336',
       'Pink': '#E91E63',
@@ -41,17 +44,17 @@ export class SelectColor implements OnInit{
 
     this.colorList = new Array<Color>();
      
-    for(let c in colors){
-      this.colorList.push({
+    for(let c in colors)
+      this.colorList.push(      {
         name: c,
         hex: colors[c],
         class: ''
       });
-    }
   }
 
   public doSelect(color: Color){
-
+    this.event.publish('new:changecolor', color);
+    this.navCtrl.pop();
   }
 
 }

@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
+/* Modules */
 import { MyApp } from './app.component';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,6 +17,9 @@ import { SelectColor } from '../pages/select-color/select-color';
 
 /* Components */
 import { TaskItem } from '../components/task-item/task-item';
+
+/* Providers */
+import { TaskProvider } from '../providers/task';
 
 @NgModule({
   declarations: [
@@ -32,6 +37,7 @@ import { TaskItem } from '../components/task-item/task-item';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -49,7 +55,8 @@ import { TaskItem } from '../components/task-item/task-item';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    TaskProvider
   ]
 })
 export class AppModule {}

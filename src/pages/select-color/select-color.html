@@ -9,7 +9,13 @@
 <ion-content padding>
 
   <ion-list no-lines>
-    <button *ngFor="let color of colorList" (click)="doSelect(color);" ion-item>{{color.name}}<ion-badge item-right>&nbsp;</ion-badge></button>
+    <button *ngFor="let color of colorList" 
+            (click)="doSelect(color);"
+            ion-item>
+      {{color.name}}
+      <ion-icon *ngIf="this.selected.name == color.name" name="checkmark" item-right></ion-icon>
+      <ion-badge item-right [ngStyle]="{'background-color': color.hex}" >&nbsp;</ion-badge>
+    </button>
   </ion-list>
 
 </ion-content>
