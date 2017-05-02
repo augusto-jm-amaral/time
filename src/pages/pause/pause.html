@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar [ngStyle]="{'background-color': task.color.hex}">
+    <ion-title>Pause</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-card class="time">
+    <ion-card-header text-center [ngStyle]="{'color': task.color.hex}">
+      Time
+    </ion-card-header>
+    <ion-card-content>
+      <h1 text-center [innerHTML]="getTimeFormated(task.dedications[0].time)"></h1>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header text-center [ngStyle]="{'color': task.color.hex}">
+      History
+    </ion-card-header>
+
+    <ion-list>
+      <button *ngFor="let dedication of task.dedications" ion-item>
+        <ion-label [innerHTML]="getTimeFormatedDots(dedication.time)"></ion-label>
+        <ion-datetime [disabled]="true"  displayFormat="MMM DD YYYY" [(ngModel)]="dedication.date"></ion-datetime>
+      </button>
+    </ion-list>
+  </ion-card>  
+</ion-content>
+
+<ion-footer>
+    <button [ngStyle]="{'background-color': task.color.hex}" ion-button full text-center [innerHTML]="getTimeFormated(task.time)"></button>
+</ion-footer>

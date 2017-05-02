@@ -14,6 +14,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { NewTask } from '../pages/new-task/new-task';
 import { SelectColor } from '../pages/select-color/select-color';
+import { Pause } from '../pages/pause/pause';
 
 /* Components */
 import { TaskItem } from '../components/task-item/task-item';
@@ -30,6 +31,7 @@ import { TaskProvider } from '../providers/task';
     ListPage,
     NewTask,
     SelectColor,
+    Pause,
 
     /* Components */
     TaskItem,
@@ -48,6 +50,7 @@ import { TaskProvider } from '../providers/task';
     ListPage,
     NewTask,
     SelectColor,
+    Pause,
 
     /* Components */
     TaskItem

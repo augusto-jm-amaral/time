@@ -1,0 +1,42 @@
+page-pause {
+    .header {
+        .toolbar-background {
+            background-color: inherit;
+        }
+
+        .toolbar-title {
+            color: white;
+        }
+
+        .back-button {
+            color: white;
+        }
+    }
+
+    .time {
+        h1 {
+            font-size: 2em;
+            span {
+                font-size: .5em;
+            }
+        }
+    }
+
+    .list {
+        ion-label {
+            opacity: 1;
+
+        }
+
+        ion-datetime {
+            font-size: .8em;
+
+        }
+    }
+
+    .footer {
+        button {
+            margin: 0;
+        }
+    }
+}

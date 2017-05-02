@@ -22,7 +22,6 @@ export class HomePage implements OnInit {
     this.events.subscribe('new:create', () => {
       this.loadList();
     })
-
   }
 
   private loadList(){

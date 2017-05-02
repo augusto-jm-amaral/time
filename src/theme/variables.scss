@@ -24,6 +24,7 @@ $font-path: "../assets/fonts";
 // The "primary" color is the only required color in the map.
 
 @import './settings';
+@import './objects';
 
 $colors: (
   primary:    #488aff,
@@ -35,7 +36,8 @@ $colors: (
   teal: $teal,
   cyan: $cyan,
   gray: $gray,
-  gray_blue: $gray_blue
+  gray_blue: $gray_blue,
+  red: $red
 );
 
 

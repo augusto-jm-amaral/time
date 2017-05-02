@@ -1,0 +1,17 @@
+ion-alert {
+    &.teal {
+        .alert-head{
+            background-color: $teal;
+            color: $white;
+        }
+
+        .alert-button-group {
+
+            button {
+                background-color: $teal;
+                border: 1px solid $teal;
+                color: $white;
+            }
+        }
+    }
+}

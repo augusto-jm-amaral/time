@@ -20,25 +20,12 @@ export class NewTask implements OnInit {
 
   public ngOnInit() {
 
-    this.task = {
-      name: '',
-      description: '',
-      time: 0,
-      color: {
-        name: 'Teal',
-        hex: '#009688',
-        class: ''
-      }
-    };
+    this.task = this.taskProvider.getNewTask();
 
-    let self = this;
-    this.events.subscribe('new:changecolor', (color: Color) => {
-      self.task.color = color;
-    });
   }
 
   public doSelectColor() {
-    this.navCtrl.push(SelectColor, {color: this.task.color});
+    this.navCtrl.push(SelectColor, {task: this.task});
   }
 
   public doCreate(){

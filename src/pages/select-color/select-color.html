@@ -13,7 +13,7 @@
             (click)="doSelect(color);"
             ion-item>
       {{color.name}}
-      <ion-icon *ngIf="this.selected.name == color.name" name="checkmark" item-right></ion-icon>
+      <ion-icon *ngIf="this.task.color.name == color.name" name="checkmark" item-right></ion-icon>
       <ion-badge item-right [ngStyle]="{'background-color': color.hex}" >&nbsp;</ion-badge>
     </button>
   </ion-list>

@@ -18,25 +18,58 @@ export class TaskProvider implements OnInit {
       
   }
 
-  public save(task: Task) {
-    
-    this.storage.ready().then(() => {
+  public update(task) {
+    this.getList()
+      .then((tasks) => {
 
-      this.storage.get('tasks').then((val) => {
-        if(val){
-          val.push(task);
-          val.sort(function(a,b) {
-              return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
-          })
-          this.storage.set('tasks', val);
-          this.events.publish('new:create');
-        }else{
-          val = []
-          val.push(task);
-          this.storage.set('tasks', val);
-          this.events.publish('new:create');
+        for (var i = 0; i < tasks.length; i++) {
+          
+          if(tasks[i].name == task.name)
+            tasks[i] = task
         }
-      })
+
+
+        this.storage.set('tasks', tasks).then((res) => {
+          this.events.publish('task:update');
+        });
+      });
+  }
+
+  public exists(tasks: Array<Task>, task: Task): boolean{
+
+    tasks.forEach(value => {
+      
+      if(value.name == task.name)
+        return true;
+
+    });
+
+    return false;
+  }
+
+  public save(task: Task): Promise<boolean> {
+    
+    return new Promise((resolve, reject) => {
+
+      this.storage.ready().then(() => {
+
+        this.storage.get('tasks').then((val) => {
+          if(val){
+
+            val.push(task);
+            val.sort(function(a,b) {
+                return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
+            })
+            this.storage.set('tasks', val);
+            this.events.publish('new:create');
+          }else{
+            val = []
+            val.push(task);
+            this.storage.set('tasks', val);
+            this.events.publish('new:create');
+          }
+        })
+      });
     });
   }
 
@@ -51,6 +84,20 @@ export class TaskProvider implements OnInit {
         });
       } 
     );
+  }
+
+  public getNewTask():Task {
+    return {
+      name: '',
+      description: '',
+      time: 0,
+      dedications: [],
+      color: {
+        name: 'Teal',
+        hex: '#009688',
+        class: ''
+      }
+    };
   }
 
 }
