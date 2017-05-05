@@ -1,5 +1,5 @@
 export interface Dedication {
-    date: Date;
+    date: string;
     start: number;
     finish: number;
     time: string;

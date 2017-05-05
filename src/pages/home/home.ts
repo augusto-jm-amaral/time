@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, Events } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
 import { Task } from '../../interfaces/task';
 import { NewTask } from '../new-task/new-task'
@@ -14,8 +14,7 @@ export class HomePage implements OnInit {
   tasks: Array<Task>;
 
   constructor(private navCtrl: NavController,
-              private taskProvider: TaskProvider,
-              private events: Events) { }
+              private taskProvider: TaskProvider) { }
 
   ngOnInit() {
     this.loadList();
@@ -28,7 +27,7 @@ export class HomePage implements OnInit {
       });
   }
 
-  private doNew() {
+  public doNew() {
     this.navCtrl.push(NewTask, { tasks: this.tasks });
   }
 

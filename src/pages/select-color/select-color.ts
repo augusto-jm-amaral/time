@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams, Events } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { Task } from '../../interfaces/task';
 import { Color } from '../../interfaces/color';

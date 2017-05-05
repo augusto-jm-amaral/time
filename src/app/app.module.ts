@@ -11,7 +11,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 /* Pages */
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { ConfigPage } from '../pages/config/config';
+import { TaskPage } from '../pages/task/task';
 import { NewTask } from '../pages/new-task/new-task';
 import { SelectColor } from '../pages/select-color/select-color';
 import { Pause } from '../pages/pause/pause';
@@ -28,10 +29,11 @@ import { TaskProvider } from '../providers/task';
     
     /* Pages */
     HomePage,
-    ListPage,
     NewTask,
     SelectColor,
     Pause,
+    ConfigPage,
+    TaskPage,
 
     /* Components */
     TaskItem,
@@ -47,10 +49,11 @@ import { TaskProvider } from '../providers/task';
 
     /* Pages */
     HomePage,
-    ListPage,
     NewTask,
     SelectColor,
     Pause,
+    ConfigPage,
+    TaskPage,
 
     /* Components */
     TaskItem

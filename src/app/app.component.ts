@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { ConfigPage } from '../pages/config/config';
 
 @Component({
   templateUrl: 'app.html'
@@ -14,13 +14,14 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     this.pages = [
-      { title: 'Tasks', component: HomePage }
+      { title: 'Tasks', component: HomePage, icon: 'md-list-box' },
+      { title: 'Configuration', component: ConfigPage, icon: 'cog' }
     ];
 
   }

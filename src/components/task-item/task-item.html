@@ -1,7 +1,7 @@
-<ion-card [ngStyle]="{'border-left': '10px solid' + task.color.hex}">
+<ion-card [ngStyle]="{'border-left': '10px solid' + task.color.hex}" (click)="doOpen()">
   <ion-item>
     <ion-label>{{task.name}}</ion-label>
-    <ion-icon name="play" item-right *ngIf="!task.dedications.length || task.dedications[0].finish > 0" (click)="doStart()"></ion-icon>
-    <ion-icon name="pause" item-right *ngIf="task.dedications.length && !task.dedications[0].finish" (click)="doPause()" color="red"></ion-icon>
+    <ion-icon name="play" item-right *ngIf="!task.dedications.length || task.dedications[0].finish > 0" (click)="doStart($event)"></ion-icon>
+    <ion-icon name="pause" item-right *ngIf="task.dedications.length && !task.dedications[0].finish" (click)="doPause($event)" color="red"></ion-icon>
   </ion-item>
 </ion-card>

@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar color="teal">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Configuration</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list no-lines>
+    <ion-item>
+      <ion-label>Language</ion-label>
+      <ion-select [(ngModel)]="language">
+        <ion-option value="en">English</ion-option>
+        <ion-option value="pt">Portuguese</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Theme</ion-label>
+      <ion-select [(ngModel)]="theme">
+        <ion-option value="teal">Teal</ion-option>
+        <ion-option value="light">Light</ion-option>
+        <ion-option value="dark">Dark</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>
