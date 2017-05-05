@@ -11,8 +11,8 @@
 
   <ion-list no-lines no-padding>
     <task-item 
-    *ngFor="let task of taskItems" 
-    [task]="task"></task-item>
+    *ngFor="let task of tasks" 
+    [task]="task" [tasks]="tasks"></task-item>
   </ion-list>
 
   <ion-fab right bottom>

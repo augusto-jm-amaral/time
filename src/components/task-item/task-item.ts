@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Events, AlertController, NavController } from 'ionic-angular';
+import { AlertController, NavController } from 'ionic-angular';
 
 import { Task } from '../../interfaces/task';
 import { TaskProvider } from '../../providers/task';
@@ -14,8 +14,10 @@ export class TaskItem implements OnInit {
   @Input('task')
   task: Task;
 
+  @Input('tasks')
+  tasks: Array<Task>;
+
   constructor(private taskProvider: TaskProvider,
-              private events: Events,
               private alertCtrl: AlertController,
               private navCtrl: NavController ){ }
   
@@ -31,16 +33,12 @@ export class TaskItem implements OnInit {
       date: date,
       start: date.getTime(),
       finish: 0,
-      time: 0
+      time: new Date(0).toISOString()
     });
-    this.taskProvider.update(this.task);
+    this.taskProvider.save(this.tasks);
   }
 
   private doPause() {
-
-    //this.elapsedTime = (new Date().getTime() - this.task.start);
-    //this.task.start = 0;
     this.navCtrl.push(Pause, {task: this.task});
-
   }
 }

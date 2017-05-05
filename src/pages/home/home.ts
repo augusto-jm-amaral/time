@@ -11,7 +11,7 @@ import { TaskProvider } from '../../providers/task';
 })
 export class HomePage implements OnInit {
 
-  taskItems: Array<Task>;
+  tasks: Array<Task>;
 
   constructor(private navCtrl: NavController,
               private taskProvider: TaskProvider,
@@ -19,20 +19,17 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.loadList();
-    this.events.subscribe('new:create', () => {
-      this.loadList();
-    })
   }
 
   private loadList(){
-    this.taskProvider.getList()
+    this.taskProvider.get()
       .then((tasks) => {
-        this.taskItems = tasks;
+        this.tasks = tasks;
       });
   }
 
   private doNew() {
-    this.navCtrl.push(NewTask);
+    this.navCtrl.push(NewTask, { tasks: this.tasks });
   }
 
 }

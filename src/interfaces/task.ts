@@ -5,7 +5,7 @@ export interface Task {
   name: string;
   description: string;
   color: Color;
-  time: number;
+  time: string;
   dedications: Array<Dedication>;
 
 }

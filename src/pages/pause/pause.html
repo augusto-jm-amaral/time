@@ -12,7 +12,8 @@
       Time
     </ion-card-header>
     <ion-card-content>
-      <h1 text-center [innerHTML]="getTimeFormated(task.dedications[0].time)"></h1>
+      <!-- <h1 text-center [innerHTML]="getTimeFormated(task.dedications[0].time)"></h1> -->
+      <ion-datetime text-center displayFormat="HH:mm:s" pickerFormat="HH:mm:s" [(ngModel)]="task.dedications[0].time"></ion-datetime>
     </ion-card-content>
   </ion-card>
 

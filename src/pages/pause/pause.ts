@@ -18,10 +18,11 @@ export class Pause implements OnInit{
     let date = new Date();
     this.task = this.navParams.get('task');
 
-    this.task.dedications[0].finish = date.getTime();
     this.task.dedications[0].date = date;
-    this.task.dedications[0].time = (this.task.dedications[0].finish - this.task.dedications[0].start);
+    this.task.dedications[0].finish = date.getTime();
+    this.task.dedications[0].time = new Date(this.task.dedications[0].finish - this.task.dedications[0].start).toISOString();
     this.task.time += this.task.dedications[0].time;
+
   }
 
   getTimeFormated(time: number): string{

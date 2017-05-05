@@ -7,32 +7,10 @@ import { Task } from '../interfaces/task';
 @Injectable()
 export class TaskProvider implements OnInit {
 
-  private tasks: Array<Task>;
-
   constructor(private storage: Storage,
-              private events: Events) {
-    
-  }
-
+              private events: Events) { }
   ngOnInit() {
       
-  }
-
-  public update(task) {
-    this.getList()
-      .then((tasks) => {
-
-        for (var i = 0; i < tasks.length; i++) {
-          
-          if(tasks[i].name == task.name)
-            tasks[i] = task
-        }
-
-
-        this.storage.set('tasks', tasks).then((res) => {
-          this.events.publish('task:update');
-        });
-      });
   }
 
   public exists(tasks: Array<Task>, task: Task): boolean{
@@ -47,33 +25,16 @@ export class TaskProvider implements OnInit {
     return false;
   }
 
-  public save(task: Task): Promise<boolean> {
+  public save(tasks: Array<Task>): Promise<boolean> {
     
     return new Promise((resolve, reject) => {
 
-      this.storage.ready().then(() => {
-
-        this.storage.get('tasks').then((val) => {
-          if(val){
-
-            val.push(task);
-            val.sort(function(a,b) {
-                return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
-            })
-            this.storage.set('tasks', val);
-            this.events.publish('new:create');
-          }else{
-            val = []
-            val.push(task);
-            this.storage.set('tasks', val);
-            this.events.publish('new:create');
-          }
-        })
-      });
+      this.storage.ready().then(() => this.storage.set('tasks', tasks));
+      
     });
   }
 
-  public getList(): Promise<Array<Task>>{
+  public get(): Promise<Array<Task>>{
     let self = this;
 
     return new Promise((resolve, reject)=> {
@@ -90,7 +51,7 @@ export class TaskProvider implements OnInit {
     return {
       name: '',
       description: '',
-      time: 0,
+      time: new Date(0).toISOString(),
       dedications: [],
       color: {
         name: 'Teal',
