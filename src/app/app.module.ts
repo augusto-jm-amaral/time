@@ -23,6 +23,9 @@ import { TaskItem } from '../components/task-item/task-item';
 /* Providers */
 import { TaskProvider } from '../providers/task';
 
+/* Translate */
+import { TRANSLATION_PROVIDERS, TranslatePipe, TranslateService } from '../translate';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -37,6 +40,9 @@ import { TaskProvider } from '../providers/task';
 
     /* Components */
     TaskItem,
+
+    /* Pipe */
+    TranslatePipe
   ],
   imports: [
     BrowserModule,
@@ -62,7 +68,9 @@ import { TaskProvider } from '../providers/task';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TaskProvider
+    TaskProvider,
+    TRANSLATION_PROVIDERS,
+    TranslateService
   ]
 })
 export class AppModule {}
