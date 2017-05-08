@@ -8,11 +8,10 @@ import { TranslateService } from '../../translate';
 })
 export class ConfigPage implements OnInit{
 
-  language = 'en';
   theme = 'teal';
   supportedLangs = [];
   translatedText = '';
-
+  language = 'en';
 
   constructor(private navCtrl: NavController, 
               private navParams: NavParams,
@@ -22,7 +21,7 @@ export class ConfigPage implements OnInit{
 
     this.supportedLangs = [
           { display: 'English', value: 'en' },
-          { display: 'Português', value: 'pt' }]
+          { display: 'Português', value: 'pt'}]
 
   }
 
@@ -32,12 +31,9 @@ export class ConfigPage implements OnInit{
 
   selectLang(lang: string) {
       this.translate.use(lang);
-      // this.refreshText();
   }
 
-  refreshText() {
-      // refresh translation when language change
-      this.translatedText = this.translate.instant('hello world');
+  onChangeLanguage($event) {
+    this.selectLang($event);
   }
-
 }

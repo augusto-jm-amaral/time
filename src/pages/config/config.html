@@ -12,10 +12,9 @@
 <ion-content padding>
   <ion-list no-lines>
     <ion-item>
-      <ion-label>Language</ion-label>
-      <ion-select [(ngModel)]="language">
-        <ion-option value="en">English</ion-option>
-        <ion-option value="pt">Portuguese</ion-option>
+      <ion-label>{{'Language' | translate}}</ion-label>
+      <ion-select [(ngModel)]="language" (ngModelChange)="onChangeLanguage($event)">
+        <ion-option *ngFor="let langs of supportedLangs" value="{{langs.value}}">{{langs.display}}</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>

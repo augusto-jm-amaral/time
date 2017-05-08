@@ -10,7 +10,9 @@ export class TranslateService {
     return this._currentLang;
   }
 
-  constructor(@Inject(TRANSLATIONS) private _translations: any){ }
+  constructor(@Inject(TRANSLATIONS) private _translations: any){
+    this._currentLang = 'en'
+  }
 
   public use(lang: string): void {
 
