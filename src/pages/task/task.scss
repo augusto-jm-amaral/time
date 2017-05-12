@@ -1,3 +1,37 @@
 page-task {
+  .header {
+      .toolbar-background {
+          background: transparent;
+      }
 
+      .toolbar-title {
+          color: white;
+      }
+
+      .back-button {
+          color: white;
+      }
+
+      &::after {
+        content: none;
+      }
+  }
+
+  .content {
+
+    .item {
+      background: transparent;
+
+      h1 {
+        color: $white;
+        font-weight: 700;
+
+      }
+
+      p {
+        font-weight: 700;
+        color: $gray;
+      }
+    }
+  }
 }

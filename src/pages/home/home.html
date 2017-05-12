@@ -3,15 +3,15 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Time</ion-title>
+    <ion-title>To do</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
   <ion-list no-lines no-padding>
-    <task-item 
-    *ngFor="let task of tasks" 
+    <task-item
+    *ngFor="let task of tasks"
     [task]="task" [tasks]="tasks"></task-item>
   </ion-list>
 

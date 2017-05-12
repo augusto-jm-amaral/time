@@ -4,7 +4,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Configuration</ion-title>
+    <ion-title>{{ 'Configuration' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,7 +18,7 @@
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label>Theme</ion-label>
+      <ion-label>{{ 'Theme' | translate}}</ion-label>
       <ion-select [(ngModel)]="theme">
         <ion-option value="teal">Teal</ion-option>
         <ion-option value="light">Light</ion-option>

@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="teal">
-    <ion-title>Colors List</ion-title>
+    <ion-title>{{ 'Color List' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -9,7 +9,7 @@
 <ion-content padding>
 
   <ion-list no-lines>
-    <button *ngFor="let color of colorList" 
+    <button *ngFor="let color of colorList"
             (click)="doSelect(color);"
             ion-item>
       {{color.name}}

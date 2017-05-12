@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar [ngStyle]="{'background-color': task.color.hex}">
-    <ion-title>Pause</ion-title>
+    <ion-title>{{ 'Pause' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -9,7 +9,7 @@
 <ion-content padding>
   <ion-card class="time">
     <ion-card-header text-center [ngStyle]="{'color': task.color.hex}">
-      Time
+      {{ 'Time' | translate}}
     </ion-card-header>
     <ion-card-content>
       <ion-datetime text-center displayFormat="HH:mm:s" pickerFormat="HH:mm:s" [(ngModel)]="task.dedications[0].time"></ion-datetime>
@@ -18,7 +18,7 @@
 
   <ion-card>
     <ion-card-header text-center [ngStyle]="{'color': task.color.hex}">
-      History
+      {{ 'History' | translate}}
     </ion-card-header>
 
     <ion-list>
@@ -29,7 +29,7 @@
         <ion-datetime [disabled]="true" displayFormat="MM/DD/YYYY" [(ngModel)]="dedication.date"></ion-datetime>
       </button>
     </ion-list>
-  </ion-card>  
+  </ion-card>
 </ion-content>
 
 <ion-footer>

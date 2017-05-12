@@ -1,11 +1,17 @@
 <ion-header>
 
-  <ion-navbar color="teal">
-    <ion-title>{{ task.name }}</ion-title>
+  <ion-navbar>
+    <!-- <ion-title>{{ task.name }}</ion-title> -->
   </ion-navbar>
 
 </ion-header>
 
-<ion-content padding>
-
+<!-- <ion-content padding [ngStyle]="{'background-color': 'rgba(' + task.color.hex + ',.5)'}"> -->
+<ion-content [ngStyle]="{'background-color': 'rgba(' + '33, 150, 243' + ',.6)'}">
+  <ion-list>
+    <ion-item>
+      <h1 text-center>{{ task.name }}</h1>
+      <p text-center>{{ task.description }}</p>
+    </ion-item>
+  </ion-list>
 </ion-content>
